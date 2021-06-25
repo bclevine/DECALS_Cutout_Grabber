@@ -2,6 +2,7 @@ import argparse
 import numpy as np
 import os
 import urllib.request as urlib
+import socket
 
 def argument_parser():
     '''
@@ -41,7 +42,15 @@ if __name__ == '__main__':
         dec_min = dec-size; dec_max = dec+size
 
         outname = '/'+str(ra)+'_'+str(dec)+'.fits'
-        urlib.urlretrieve(url.format(args.layer, ra_min, ra_max, dec_min, dec_max),outputs+outname)
+
+        socket.setdefaulttimeout(15)
+
+        try:
+            urlib.urlretrieve(url.format(args.layer, ra_min, ra_max, dec_min, dec_max),outputs+outname)
+        except Exception as e:
+            print('Catalog at [', ra, dec, '] timed out. :(')
+            continue
+
         print('Catalog at [', ra, dec, '] has been downloaded.')
     
     print('---------')
