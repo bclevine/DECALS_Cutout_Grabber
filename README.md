@@ -15,4 +15,4 @@ Defaults:
 - cutout file = 'cutouts.txt'
 - output directory = 'catalogs'
 - catalog layer = 'ls-dr9' (DECALS DR9)
-- multithreaded = 'False'
+- multithreaded = False
