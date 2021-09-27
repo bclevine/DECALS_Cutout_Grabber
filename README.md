@@ -9,9 +9,10 @@ Defaults:
 - file type = 'fits' (the alternative is 'jpeg')
     
 Catalog Syntax: 
-> python3 get_catalog.py -c [cutout file] -d [output directory] -l [catalog layer]
+> python3 get_catalog.py -c [cutout file] -d [output directory] -l [catalog layer] -m [multithreaded?]
 
 Defaults: 
 - cutout file = 'cutouts.txt'
 - output directory = 'catalogs'
 - catalog layer = 'ls-dr9' (DECALS DR9)
+- multithreaded = 'False'
